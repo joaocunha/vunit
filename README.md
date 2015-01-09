@@ -21,11 +21,11 @@ An observer running every 100ms checks if the viewport has been resized and rege
 Could do with some love but it shows the point.
 
 ## Pro tips
-- Load vUnit on the head tag to avoid FOUC.
-- Add a CSS transition on mobile, so it doesn't jitter as the address bar appears/disappears.
-- vUnit is pretty fast, but avoid bloating your CSSMap with properties you won't gonna use.
-- vUnit is not supposed to replace your grid, just to enhance your design.
-- Always consider non-JS users.
+- **Load vUnit on the `<head>`** tag to avoid FOUC.
+- **Add a CSS transition on mobile**, so it doesn't jitter as the address bar appears/disappears.
+- vUnit is pretty fast, but **avoid bloating your CSSMap** with properties you won't gonna use.
+- **vUnit is not supposed to replace your grid**, just to enhance your design.
+- Always **consider non-JS** users.
 
 ## Support
 So far, tested on:
