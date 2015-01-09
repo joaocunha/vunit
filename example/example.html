@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html class="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0">
+
+    <title>v-unit demo</title>
+
+    <link rel="stylesheet" type="text/css" href="example.css" />
+
+    <!-- Add vUnit.js to the head to avoid FOUC -->
+    <script type="text/javascript" src="../v-unit.js"></script>
+    <!-- Instantiate vUnit.js passing a CSSMap with properties you want to play with -->
+    <script type="text/javascript">
+        new vUnit({
+            CSSMap: {
+                '.vh': {
+                    property: 'height',
+                    reference: 'vh'
+                },
+                '.vw': {
+                    property: 'width',
+                    reference: 'vw'
+                },
+                '.vwfs': {
+                    property: 'font-size',
+                    reference: 'vw'
+                },
+                '.vhmt': {
+                    property: 'margin-top',
+                    reference: 'vh'
+                },
+                '.vhmb': {
+                    property: 'margin-bottom',
+                    reference: 'vh'
+                },
+                '.vminw': {
+                    property: 'width',
+                    reference: 'vmin'
+                },
+                '.vmaxw': {
+                    property: 'width',
+                    reference: 'vmax'
+                }
+            }
+        }).init();
+    </script>
+
+</head>
+<body>
+    <!-- <a href="https://github.com/joaocunha/v-unit"><i class="flaticon-github7"></i></a> -->
+
+    <h1 class="vunit vwfs10 vhmt4">
+        <pre class="vunit-pre">class="vwfs10 vhmt5"</pre>
+        vUnit.js
+    </h1>
+
+    <h2 class="vunit vwfs2 vhmt4 vhmb4">
+        <pre class="vunit-pre">class="vwfs2 vhmt4 vhmb4"</pre>
+        A vanilla JS alternative to buggy vh/vw &amp; vmin/vmax CSS units.
+    </h2>
+
+    <div class="features">
+        <div class="vunit vw25">
+            <pre class="vunit-pre">class="vw25"</pre>
+            <i class="flaticon-web40"></i>
+            <p><b>Device agnostic:</b> works everywhere, from IE8 to Mobile</p>
+        </div>
+
+        <div class="vunit vw25">
+            <pre class="vunit-pre">class="vw25"</pre>
+            <i class="flaticon-feather26"></i>
+            <p><b>Lightweight:</b> only ~600 bytes after gzip</p>
+        </div>
+
+        <div class="vunit vw25">
+            <pre class="vunit-pre">class="vw25"</pre>
+            <i class="flaticon-lightning24"></i>
+            <p><b>Super fast:</b> doesn't play with the DOM or parse your existing CSS</p>
+        </div>
+
+        <div class="vunit vw25">
+            <pre class="vunit-pre">class="vw25"</pre>
+            <i class="flaticon-js1"></i>
+            <p><b>No dependencies:</b> written in pure vanilla JS</p>
+        </div>
+    </div>
+
+    <h2 class="vunit vwfs4 vhmt7 vhmb3">
+        <pre class="vunit-pre">class="vwfs4 vhmt7 vhmb3"</pre>
+        Example: viewport-based gallery
+    </h2>
+
+    <div class="gallery">
+        <div class="vunit vw50 vh50 img1">
+            <pre class="vunit-pre">class="vw50 vh50"</pre>
+
+        </div>
+        <div class="vunit vw50 vh50 img2">
+            <pre class="vunit-pre">class="vw50 vh50"</pre>
+        </div>
+        <div class="vunit vw50 vh50 img3">
+            <pre class="vunit-pre">class="vw50 vh50"</pre>
+        </div>
+        <div class="vunit vw50 vh50 img4">
+            <pre class="vunit-pre">class="vw50 vh50"</pre>
+        </div>
+
+        <div class="vunit vw100 vh100 img5">
+            <pre class="vunit-pre">class="vw100 vh100"</pre>
+        </div>
+
+        <div class="vunit vw33 vh50 img6">
+            <pre class="vunit-pre">class="vw33 vh50"</pre>
+        </div>
+        <div class="vunit vw33 vh50 img7">
+            <pre class="vunit-pre">class="vw33 vh50"</pre>
+        </div>
+        <div class="vunit vw34 vh50 img8">
+            <pre class="vunit-pre">class="vw34 vh50"</pre>
+        </div>
+    </div>
+
+    <h2 class="vunit vwfs4 vhmt7 vhmb3">
+        <pre class="vunit-pre">class="vwfs4 vhmt7 vhmb3"</pre>
+        How it works
+    </h2>
+    <div class="works">
+        <p><em>TL;DR: pass a CSSMap with your CSS properties and add the classes to your HTML elements.</em></p>
+
+        <p>Viewport relative units are awesome, except they're not - they are buggy, unreliable and have inconsistent implementation among browsers. vUnit.js offers a lightweight, robust alternative for them and weights ~600 bytes after gzip.</p>
+
+        <p>vUnit.js calculates the browser viewport dimensions and creates CSS rules ranging from 1% to 100% of its size. These rules are then inserted into a stylesheet which is injected on the fly to the head tag.</p>
+
+        <p>An observer running every 100ms checks if the viewport have been resized and regenerates the CSS rules accordingly. It is a cross-device event-less solution to keep track of everything that would trigger a resize on the viewport, namely:</p>
+
+        <ul>
+            <li>Window resizing on desktop;</li>
+            <li>Orientation change on mobile;</li>
+            <li>Scrollbars appearing/disappearing on desktop;</li>
+            <li>Navigation bars appearing/disappearing on mobile;</li>
+            <li>Zooming on mobile and desktop;</li>
+            <li>Download bar on desktop;</li>
+            <li>Password saving prompt on desktop;</li>
+            <li>Etc.</li>
+        </ul>
+    </div>
+
+    <h2 class="vunit vwfs4 vhmt7 vhmb3">
+        <pre class="vunit-pre">class="vwfs4 vhmt7 vhmb3"</pre>
+        How to use
+    </h2>
+
+    <div class="embed">
+        <script src="https://gist.github.com/joaocunha/3ac1b9fdbc5f56a01d6e.js"></script>
+    </div>
+
+    <h2 class="vunit vwfs4 vhmt7 vhmb3">
+        <pre class="vunit-pre">class="vwfs4 vhmt7 vhmb3"</pre>
+        Pro tips
+    </h2>
+    <div class="works">
+        <ol>
+            <li><b>Load vUnit on the head</b> tag to avoid <abbr title="Flash of unstyled content">FOUC</abbr>.</li>
+            <li><b>Add a CSS transition on mobile</b>, so it doesn't jitter as the address bar appears/disappears.</li>
+            <li>vUnit is pretty fast, but <b>avoid bloating your CSSMap</b> with properties you won't gonna use.</li>
+            <li><b>vUnit is not supposed to replace your grid</b>, just to enhance your design.</li>
+            <li>Always <b>consider non-JS</b> users.</li>
+        </ol>
+    </div>
+
+    <h2 class="vunit vwfs4 vhmt7 vhmb3">
+        <pre class="vunit-pre">class="vwfs4 vhmt7 vhmb3"</pre>
+        Credits
+    </h2>
+    <div class="works">
+        <p>Made with love by <a href="http://twitter.com/joaocunha">João Cunha</a></p>
+        <p>Awesome pictures by <a href="http://moveast.me">João Pacheco</a></p>
+        <p>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a>, <a href="http://www.icomoon.io" title="Icomoon">Icomoon</a>, <a href="http://conceptdezain.com" title="Franco Averta">Franco Averta</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>. Licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></p>
+    </div>
+    <button class="press-me" onclick="document.documentElement.classList.toggle('debug')">Press Me!</button>
+</body>
+</html>
