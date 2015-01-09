@@ -32,7 +32,6 @@
 i {
     display: block;
     text-align: center;
-    margin-top: 30px;
     font-size: 80px;
 }
 
@@ -52,7 +51,7 @@ html, body {
     margin:0;
     padding:0;
     color: #333333;
-    background: #F0F0F0;
+    background: #F9F9F9;
 }
 
 div {
@@ -78,6 +77,16 @@ h1, h2 {
     text-align: center;
     position: relative;
     margin: 0 auto;
+    font-family: Georgia, Serif;
+    line-height: 1.5;
+}
+.subtitle {
+    max-width: 900px;
+    font-weight: normal;
+}
+h1 a {
+    color: #333;
+    font-family: Georgia, Serif;
 }
 
 .white {
@@ -145,6 +154,9 @@ p {
 .features {
     background: white;
     overflow: hidden;
+    padding: 20px 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
 }
 .features .vunit {
     float: left;
@@ -196,13 +208,20 @@ p {
 }
 .works {
     background: white;
-    max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 2px
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
 }
-
+.works p, .works ul, .works ol {
+    max-width: 800px;
+    display: block;
+    margin: 20px auto;
+}
 li {
     line-height: 2;
+}
+
+abbr {
+    border-bottom: 1px dashed #333;
 }
