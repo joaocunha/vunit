@@ -18,8 +18,12 @@ An observer running every 100ms checks if the viewport has been resized and rege
 - Password saving prompt on desktop;
 - Etc.
 
-## How to use, in two steps
-**First:** add the script to head and instantiate vUnit passing a CSSMap object:
+## How to use, in 3 steps
+**First:** install using [bower](http://bower.io):
+
+`bower install vunit`
+
+**Second:** add the script to the `<head>` tag and instantiate `vUnit` passing a `CSSMap` object:
 ```html
 <head>
     <script src="vunit.js"></script>
@@ -48,22 +52,24 @@ An observer running every 100ms checks if the viewport has been resized and rege
     </script>
 </head>
 ```
-**Second:** Add the generated classes to your HTML elements:
+
+**Third:** Add the generated classes to your HTML elements:
 ```html
 <h1 class="vw_font-size15">This title font-size is 15% of the viewport width.</h1>
 <p class="vh_height50">This p's height is 50% of the viewport height.</p>
 <p class="vmin_margin-top5">This p has some margin-top.<p>
 ```
+
 You're done!
 
 ## Pro tips
 - **Load vUnit on the `<head>`** tag to avoid FOUC.
 - **Add a CSS transition on mobile**, so it doesn't jitter as the address bar appears/disappears.
 - vUnit is pretty fast, but **avoid bloating your CSSMap** with properties you won't gonna use.
-- **vUnit is not supposed to replace your grid**, just to enhance your design.
+- **vUnit is not supposed to replace your grid**, but to enhance your design.
 - Always **consider non-JS** users.
 
-## Support
+## Browser support
 So far, tested on:
 - IE8+
 - Chrome
