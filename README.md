@@ -1,4 +1,4 @@
-VUnit
+vUnit
 ======
 A vanilla JS alternative to buggy vh/vw & vmin/vmax CSS units.
 
