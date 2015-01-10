@@ -2,8 +2,8 @@
  * @license MIT
  * @preserve
  *
- * vUnit: A vanilla JS alternative for vh/vw/vmin/vmax CSS units.
- * https://github.com/joaocunha/vunit/
+ * vUnit: A vanilla JS alternative for vh and vw CSS units.
+ * https://github.com/joaocunha/v-unit/
  *
  * @author João Cunha - joao@joaocunha.net - twitter.com/joaocunha
  */
@@ -20,7 +20,7 @@
 
         vunit.options = {
             // The ID for the appended stylesheet
-            stylesheetId: opts.stylesheetId || 'vunit-stylesheet',
+            stylesheetId: opts.stylesheetId || 'v-unit-stylesheet',
 
             // The interval between each check in miliseconds
             viewportObserverInterval: opts.viewportObserverInterval || 100,
@@ -41,13 +41,13 @@
          *
          * It sets an observer to check if the viewport dimensions changed, running on an interval
          * based on the viewportObserverInterval option. If the dimensions have changed, it creates
-         * an stylesheet, adds the calculated CSS rules to it and injects it in the head.
+         * an stylesheet, adds the calculated CSS rules to it and append it to the head.
          *
          * The observer is a cross-device event-less solution to keep track of everything that
          * would trigger a resize on the viewport:
          *
          *  - Window resizing on desktop;
-         *  - Orientation change on mobile;
+         *  - Orientation changing on mobile;
          *  - Scrollbars appearing/disappearing on desktop;
          *  - Navigation bars appearing/disappearing on mobile;
          *  - Zooming on mobile and desktop;
@@ -103,7 +103,7 @@
 
         /**
          * @function createStylesheet
-         * Creates an empty stylesheet that will hold the vUnit rules.
+         * Creates an empty stylesheet that will hold the v-unit rules.
          *
          * @returns {HTMLStyleElement} An empty stylesheet element.
          */
