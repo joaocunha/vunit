@@ -2,22 +2,6 @@ vUnit
 ======
 vUnit is a vanilla JS microlib that allows you to size elements based on the viewport dimensions, without relying on the buggy `vh`/`vw`/`vmin`/`vmax` CSS units. [See a live example](http://joaocunha.github.io/vunit/).
 
-## About
-Viewport relative units are awesome, except they're not - they are [buggy, unreliable and have inconsistent implementation across browsers](http://caniuse.com/#feat=viewport-units). `vUnit.js` offers a lightweight, robust alternative for them and weighs ~600 bytes after gzip.
-
-`vUnit.js` calculates the browser viewport dimensions and creates CSS rules ranging from 1% to 100% of its size. These rules are then inserted into a stylesheet which is injected on the fly to the `<head>` tag.
-
-An observer running every 100ms checks if the viewport has been resized and regenerates the CSS rules accordingly. It's a cross-device, event-less solution to keep track of everything that would trigger a resize on the viewport, namely:
-
-- Window resizing on desktop;
-- Orientation change on mobile;
-- Scrollbars appearing/disappearing on desktop;
-- Navigation bars appearing/disappearing on mobile;
-- Zooming on mobile and desktop;
-- Download bar on desktop;
-- Password saving prompt on desktop;
-- Etc.
-
 ## How to use, in 3 steps
 **First:** install using [bower](http://bower.io):
 
@@ -61,6 +45,22 @@ An observer running every 100ms checks if the viewport has been resized and rege
 ```
 
 You're done!
+
+## How it works
+Viewport relative units are awesome, except they're not - they are [buggy, unreliable and have inconsistent implementation across browsers](http://caniuse.com/#feat=viewport-units). `vUnit.js` offers a lightweight, robust alternative for them and weighs ~600 bytes after gzip.
+
+`vUnit.js` calculates the browser viewport dimensions and creates CSS rules ranging from 1% to 100% of its size. These rules are then inserted into a stylesheet which is injected on the fly to the `<head>` tag.
+
+An observer running every 100ms checks if the viewport has been resized and regenerates the CSS rules accordingly. It's a cross-device, event-less solution to keep track of everything that would trigger a resize on the viewport, namely:
+
+- Window resizing on desktop;
+- Orientation change on mobile;
+- Scrollbars appearing/disappearing on desktop;
+- Navigation bars appearing/disappearing on mobile;
+- Zooming on mobile and desktop;
+- Download bar on desktop;
+- Password saving prompt on desktop;
+- Etc.
 
 ## Pro tips
 - **Load vUnit on the `<head>`** tag to avoid FOUC.
