@@ -68,6 +68,7 @@ So far, tested on:
 - IE8+
 - Chrome
 - Firefox
+- Safari
 - Chrome for Android
 - Android Browser 4.3
 
