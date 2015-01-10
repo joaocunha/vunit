@@ -18,8 +18,8 @@ An observer running every 100ms checks if the viewport has been resized and rege
 - Password saving prompt on desktop;
 - Etc.
 
-## How to use
-1. Add the script to head and instantiate vUnit passing a CSSMap object:
+## How to use, in two steps
+**First:** add the script to head and instantiate vUnit passing a CSSMap object:
 ```html
 <head>
     <script src="vunit.js"></script>
@@ -48,12 +48,13 @@ An observer running every 100ms checks if the viewport has been resized and rege
     </script>
 </head>
 ```
-2. Add the generated classes to your HTML elements:
+**Second:** Add the generated classes to your HTML elements:
 ```html
 <h1 class="vw_font-size15">This title font-size is 15% of the viewport width.</h1>
 <p class="vh_height50">This p's height is 50% of the viewport height.</p>
 <p class="vmin_margin-top5">This p has some margin-top.<p>
 ```
+You're done!
 
 ## Pro tips
 - **Load vUnit on the `<head>`** tag to avoid FOUC.
