@@ -4,7 +4,7 @@
   "license": "MIT",
   "version": "0.0.1",
   "main": "vunit.js",
-  "author": "João Cunha",
+  "author": "João Cunha <joao@joaocunha.net> (http://twitter.com/joaocunha)",
   "homepage": "http://joaocunha.github.io/vunit/",
   "keywords": [
     "js",
