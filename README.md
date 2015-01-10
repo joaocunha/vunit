@@ -1,7 +1,8 @@
 vUnit
 ======
-A vanilla JS alternative to buggy vh/vw & vmin/vmax CSS units.
+TL;DR: vUnit is a vanilla JS microlib that allows you to size elements based on the viewport dimensions, without relying on the buggy vh/vw/vmin/vmax CSS units. See the [live example](http://joaocunha.github.io/vunit/).
 
+## About
 Viewport relative units are awesome, except they're not - they are [buggy, unreliable and have inconsistent implementation across browsers](http://caniuse.com/#feat=viewport-units). `vUnit.js` offers a lightweight, robust alternative for them and weighs ~600 bytes after gzip.
 
 `vUnit.js` calculates the browser viewport dimensions and creates CSS rules ranging from 1% to 100% of its size. These rules are then inserted into a stylesheet which is injected on the fly to the `<head>` tag.
