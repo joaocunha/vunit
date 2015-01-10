@@ -2,7 +2,7 @@
   "name": "vunit",
   "description": "A vanilla JS alternative to vh/vw and vmin/vmax CSS units.",
   "license": "MIT",
-  "version": "0.0.1",
+  "version": "v0.0.1",
   "main": "vunit.js",
   "author": "João Cunha <joao@joaocunha.net> (http://twitter.com/joaocunha)",
   "homepage": "http://joaocunha.github.io/vunit/",
