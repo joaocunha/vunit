@@ -81,7 +81,6 @@ h1, h2 {
     line-height: 1.5;
 }
 .subtitle {
-    max-width: 900px;
     font-weight: normal;
 }
 h1 a {
@@ -224,4 +223,9 @@ li {
 
 abbr {
     border-bottom: 1px dashed #333;
+}
+
+.gh {
+    color: #333;
+    text-decoration: none;
 }
