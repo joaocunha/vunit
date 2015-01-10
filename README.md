@@ -1,6 +1,6 @@
 vUnit
 ======
-vUnit is a vanilla JS microlib that allows you to size elements based on the viewport dimensions, without relying on the buggy vh/vw/vmin/vmax CSS units. See the [live example](http://joaocunha.github.io/vunit/).
+vUnit is a vanilla JS microlib that allows you to size elements based on the viewport dimensions, without relying on the buggy vh/vw/vmin/vmax CSS units. [See a live example](http://joaocunha.github.io/vunit/).
 
 ## About
 Viewport relative units are awesome, except they're not - they are [buggy, unreliable and have inconsistent implementation across browsers](http://caniuse.com/#feat=viewport-units). `vUnit.js` offers a lightweight, robust alternative for them and weighs ~600 bytes after gzip.
@@ -18,8 +18,42 @@ An observer running every 100ms checks if the viewport has been resized and rege
 - Password saving prompt on desktop;
 - Etc.
 
-## [Live example](http://joaocunha.github.io/vunit/)
-Could do with some love but it shows the point.
+## How to use
+1. Add the script to head and instantiate vUnit passing a CSSMap object:
+```html
+<head>
+    <script src="vunit.js"></script>
+    <script>
+        new vUnit({
+            CSSMap: {
+                // The selector (VUnit will create rules ranging from .selector1 to .selector100)
+                '.vh_height': {
+                    // The CSS property (any CSS property that accepts px as units)
+                    property: 'height',
+                    // What to base the value on (vh, vw, vmin or vmax)
+                    reference: 'vh'
+                },
+                // Wanted to have a font-size based on the viewport width? You got it.
+                '.vw_font-size': {
+                    property: 'font-size',
+                    reference: 'vw'
+                },
+                // vmin and vmax can be used as well.
+                '.vmin_margin-top': {
+                    property: 'margin-top',
+                    reference: 'vmin'
+                }
+            }
+        }).init(); // call the public init() method
+    </script>
+</head>
+```
+2. Add the generated classes to your HTML elements:
+```html
+<h1 class="vw_font-size15">This title font-size is 15% of the viewport width.</h1>
+<p class="vh_height50">This p's height is 50% of the viewport height.</p>
+<p class="vmin_margin-top5">This p has some margin-top.<p>
+```
 
 ## Pro tips
 - **Load vUnit on the `<head>`** tag to avoid FOUC.
