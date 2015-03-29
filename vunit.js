@@ -155,15 +155,21 @@
             for (var selector in map) {
                 var property = map[selector].property;
 
-                // Adds rules from className1 to className100 to the stylesheet
+                // Adds rules from className1_01 to className100 to the stylesheet
                 for (var range = 0; range <= 100; range=range+0.01) {
+
+                    //Round the range to 2 digitss Decimal. Result= 1.00
                     var rangeString= new String(range.toFixed(2));
+
+                    //Replace the dot for _ why? for name in this way className1_03
                     var rangeValue=rangeString.replace('.','_');
-                    // Checks what to base the value on (viewport width/height or vmin/vmax)
+
+                    // If range is 10.00 let is round for get className1
                    if(rangeString.indexOf('.00')>0){
                      rangeValue=Math.round(range);
                    }
                    
+                   // Checks what to base the value on (viewport width/height or vmin/vmax)
                     switch (map[selector].reference) {
                         case 'vw':
                             value = computedWidth * range;
