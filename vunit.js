@@ -8,7 +8,7 @@
  * @author João Cunha - joao@joaocunha.net - twitter.com/joaocunha
  */
 
-;(function(win, doc, undefined) {
+(function(win, doc, undefined) {
     'use strict';
 
     win.vUnit = function (options) {
@@ -156,9 +156,14 @@
                 var property = map[selector].property;
 
                 // Adds rules from className1 to className100 to the stylesheet
-                for (var range = 1; range <= 100; range++) {
-
+                for (var range = 0; range <= 100; range=range+0.01) {
+                    var rangeString= new String(range.toFixed(2));
+                    var rangeValue=rangeString.replace('.','_');
                     // Checks what to base the value on (viewport width/height or vmin/vmax)
+                   if(rangeString.indexOf('.00')>0){
+                     rangeValue=Math.round(range);
+                   }
+                   
                     switch (map[selector].reference) {
                         case 'vw':
                             value = computedWidth * range;
@@ -178,7 +183,7 @@
                     var CSSRuleTemplate = '_SELECTOR__RANGE_{_PROPERTY_:_VALUE_px}\n';
 
                     CSSRules += CSSRuleTemplate.replace('_SELECTOR_', selector)
-                                               .replace('_RANGE_', range)
+                                               .replace('_RANGE_', rangeValue)
                                                .replace('_PROPERTY_', property)
                                                .replace('_VALUE_', value);
                 } // end 1-100 range loop
