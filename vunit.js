@@ -26,7 +26,10 @@
             viewportObserverInterval: opts.viewportObserverInterval || 100,
 
             // The CSS rules to be vUnit'd
-            CSSMap: opts.CSSMap || null
+            CSSMap: opts.CSSMap || null,
+            
+            // called on change
+            onChange: opts.onChange || null
         };
 
         // Stores the viewport dimensions so the observer can check against it and update it.
@@ -70,6 +73,10 @@
                         var CSSRules = createCSSRules();
                         appendCSSRulesToStylesheet(CSSRules, stylesheet);
                         appendStylesheetOnHead(stylesheet);
+                        
+                        if (vunit.options.onChange) {
+                            vunit.options.onChange(vunit.viewportSize);
+                        }
                     }
 
                     return viewportObserver;
