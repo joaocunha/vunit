@@ -13,31 +13,42 @@ vUnit is a vanilla JS microlib (~600 bytes after gzip) that allows you to size e
 **Second:** add the script to the `<head>` tag and instantiate `vUnit` passing a `CSSMap` object:
 ```html
 <head>
-    <script src="vunit.js"></script>
-    <script>
-        new vUnit({
-            CSSMap: {
-                // The selector (VUnit will create rules ranging from .selector1 to .selector100)
-                '.vh_height': {
-                    // The CSS property (any CSS property that accepts px as units)
-                    property: 'height',
-                    // What to base the value on (vh, vw, vmin or vmax)
-                    reference: 'vh'
-                },
-                // Wanted to have a font-size based on the viewport width? You got it.
-                '.vw_font-size': {
-                    property: 'font-size',
-                    reference: 'vw'
-                },
-                // vmin and vmax can be used as well.
-                '.vmin_margin-top': {
-                    property: 'margin-top',
-                    reference: 'vmin'
-                }
-            }
-        }).init(); // call the public init() method
-    </script>
+	<!-- Add vUnit.js to the head to avoid FOUC -->
+	<script src="path/to/vunit.js"></script>
+
+	<!-- Instantiate vUnit.js passing a CSSMap with properties you want to play with -->
+	<script>
+		new vUnit({
+			CSSMap: {
+				// The selector (VUnit will create rules ranging from .selector1 to .selector100)
+				'.vh_height': {
+					// The CSS property (any CSS property that accepts px as units)
+					property: 'height',
+					// What to base the value on (vh, vw, vmin or vmax)
+					reference: 'vh'
+				},
+				// Wanted to have a font-size based on the viewport width? You got it.
+				'.vw_font-size': {
+					property: 'font-size',
+					reference: 'vw'
+				},
+				// vmin and vmax can be used as well.
+				'.vmin_margin-top': {
+					property: 'margin-top',
+					reference: 'vmin'
+				}
+			},
+			onResize: function() {
+				console.log('A screen resize just happened, yo.');
+			}
+		}).init(); // call the public init() method
+	</script>
 </head>
+<body>
+	<h1 class="vw_font-size15">This title font-size is 15% of the viewport width.</h1>
+	<p class="vh_height50">This p's height is 50% of the viewport height.</p>
+	<p class="vmin_margin-top5">This p has some margin-top<p>
+</body>
 ```
 
 **Third:** Add the generated classes to your HTML elements:
