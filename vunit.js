@@ -2,7 +2,8 @@
  * @license MIT
  * @preserve
  *
- * vUnit: A vanilla JS alternative for vh and vw CSS units.
+ * vUnit.js: A vanilla JS alternative for vh and vw CSS units.
+ * Version: 0.2.0
  * https://github.com/joaocunha/v-unit/
  *
  * @author João Cunha - joao@joaocunha.net - twitter.com/joaocunha
