@@ -6,9 +6,9 @@ vUnit is a vanilla JS microlib (~1000 bytes after gzip) that allows you to size 
 ![4x4 panel, 50% height and width](https://dl.dropboxusercontent.com/u/4533940/vunit/vunit-example.png "4x4 panel, 50% height and width")
 
 ## How to use, in 3 steps
-**First:** install using [bower](http://bower.io):
+**First:** install using [bower](http://bower.io) or [npm](https://www.npmjs.com/package/vunit.js):
 
-`bower install vunit`
+`bower install vunit` or `npm install vunit.js`
 
 **Second:** add the script to the `<head>` tag and instantiate `vUnit` passing a `CSSMap` object:
 ```html
