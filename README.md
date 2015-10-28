@@ -1,6 +1,6 @@
 vUnit
 ======
-vUnit is a vanilla JS microlib (~600 bytes after gzip) that allows you to size elements based on the viewport dimensions, without relying on the buggy `vh`/`vw`/`vmin`/`vmax` CSS units. [See a live example](http://joaocunha.github.io/vunit/).
+vUnit is a vanilla JS microlib (~1000 bytes after gzip) that allows you to size elements based on the viewport dimensions, without relying on the buggy `vh`/`vw`/`vmin`/`vmax` CSS units. [See a live example](http://joaocunha.github.io/vunit/).
 
 > 4x4 panel, 50% height and width:
 ![4x4 panel, 50% height and width](https://dl.dropboxusercontent.com/u/4533940/vunit/vunit-example.png "4x4 panel, 50% height and width")
