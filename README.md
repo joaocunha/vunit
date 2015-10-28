@@ -13,7 +13,10 @@ vUnit is a vanilla JS microlib (~600 bytes after gzip) that allows you to size e
 **Second:** add the script to the `<head>` tag and instantiate `vUnit` passing a `CSSMap` object:
 ```html
 <head>
+	<!-- Add vUnit.js to the head to avoid FOUC -->
 	<script src="path/to/vunit.js"></script>
+
+	<!-- Instantiate vUnit.js passing a CSSMap with properties you want to play with -->
 	<script>
 		new vUnit({
 			CSSMap: {
@@ -41,6 +44,11 @@ vUnit is a vanilla JS microlib (~600 bytes after gzip) that allows you to size e
 		}).init(); // call the public init() method
 	</script>
 </head>
+<body>
+	<h1 class="vw_font-size15">This title font-size is 15% of the viewport width.</h1>
+	<p class="vh_height50">This p's height is 50% of the viewport height.</p>
+	<p class="vmin_margin-top5">This p has some margin-top<p>
+</body>
 ```
 
 **Third:** Add the generated classes to your HTML elements:

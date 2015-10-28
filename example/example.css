@@ -190,6 +190,10 @@ p {
   padding: 0 10px;
 }
 
+.embed table * {
+	font-family: monospace;
+}
+
 .img1 {
   background: url(http://41.media.tumblr.com/0aa47ca33d3e29e43e90211b782e9fc8/tumblr_ngy7usnwPo1tomxvuo6_1280.jpg) no-repeat center center;
   background-size: cover;
