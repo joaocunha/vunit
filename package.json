@@ -1,5 +1,5 @@
 {
-	"name": "vunit",
+	"name": "vunit.js",
 	"version": "0.2.0",
 	"description": "A vanilla JS alternative to vh/vw and vmin/vmax CSS units.",
 	"license": "MIT",
