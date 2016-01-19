@@ -123,6 +123,16 @@
 
 			return stylesheet;
 		};
+		
+		/**
+		 * @function sumFloat
+		 * Clean Summing of 1 or more float numbers
+		 *
+		 * @returns {Float} Sum of args
+		 */
+		var sumFloat = function(arg1, arg2){
+			return (Math.round((arg1+arg2) * 1e12) / 1e12);
+		};
 
 		/**
 		 * @function createCSSRules
@@ -162,31 +172,35 @@
 				var property = map[selector].property;
 
 				// Adds rules from className1 to className100 to the stylesheet
-				for (var range = 1; range <= 100; range++) {
+				for (var range = 0; range <= 100; range++) {
+				  
+				  // Adds rules between round numbers (0.1-0.9) to the stylesheet
+				  for (var decimal = 0; decimal < 1; decimal=sumFloat(decimal, 0.1)){
+          
+  					// Checks what to base the value on (viewport width/height or vmin/vmax)
+  					switch (map[selector].reference) {
+  						case 'vw':
+  							value = computedWidth * (range+decimal);
+  							break;
+  						case 'vh':
+  							value = computedHeight * (range+decimal);
+  							break;
+  						case 'vmin':
+  							value = vmin * (range+decimal);
+  							break;
+  						case 'vmax':
+  							value = vmax * (range+decimal);
+  							break;
+  					}
 
-					// Checks what to base the value on (viewport width/height or vmin/vmax)
-					switch (map[selector].reference) {
-						case 'vw':
-							value = computedWidth * range;
-							break;
-						case 'vh':
-							value = computedHeight * range;
-							break;
-						case 'vmin':
-							value = vmin * range;
-							break;
-						case 'vmax':
-							value = vmax * range;
-							break;
-					}
-
-					// Barebones templating syntax
-					var CSSRuleTemplate = '_SELECTOR__RANGE_{_PROPERTY_:_VALUE_px}\n';
-
-					CSSRules += CSSRuleTemplate.replace('_SELECTOR_', selector)
-                                     .replace('_RANGE_', range)
-                                     .replace('_PROPERTY_', property)
-                                     .replace('_VALUE_', value);
+  					// Barebones templating syntax
+  					var CSSRuleTemplate = '_SELECTOR__RANGE_{_PROPERTY_:_VALUE_px}\n';
+  
+  					CSSRules += CSSRuleTemplate.replace('_SELECTOR_', selector)
+                                       .replace('_RANGE_', (range+decimal).toString().replace(".", "_"))
+                                       .replace('_PROPERTY_', property)
+                                       .replace('_VALUE_', value);
+				  }
 				}
 			}
 
